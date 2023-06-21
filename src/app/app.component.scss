@@ -39,7 +39,12 @@ body { margin: 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     vertical-align: middle;
     margin-right: 8px;
   }
-  
+  .toolbar{
+    display: flex;
+    flex-direction: row;
+    gap: 29px;
+   text-align: center;
+  }
   // a {
   //   display: flex;
   //   align-items: center;
