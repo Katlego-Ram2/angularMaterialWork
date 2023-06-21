@@ -1,0 +1,48 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.mat-toolbar{
+    background-color: rgb(122, 176, 205);
+ 
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .mat-sidenav-container{
+    height: calc(205vh - 115vh);
+  }
+  .mat-sidenav{
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: black;
+   
+  }
+  .mat-sidenav-content{
+    background-color:white;
+  }
+
+  .mat-list-item{
+    color: #000;
+  }
+  a{
+    color: #000;
+    text-decoration: none;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  a:hover{
+    color: #7AB0CD;
+  }
+  .mat-icon {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+  }
+  
+  

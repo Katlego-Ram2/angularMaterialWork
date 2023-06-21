@@ -1,0 +1,86 @@
+<button mat-raised-button (click)="toggleLinear()" id="toggle-linear">
+  {{ !isLinear ? 'Enable linear mode' : 'Disable linear mode' }}
+</button>
+
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your Personal Details:</ng-template>
+      <mat-form-field>
+        <mat-label>Firstname:</mat-label>
+        <input matInput placeholder="First name" [(ngModel)]="userdata.firstname" formControlName="firstCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Lastname:</mat-label>
+        <input matInput placeholder="Last name" [(ngModel)]="userdata.lastname" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email:</mat-label>
+        <input matInput placeholder="Example@Email.com" [(ngModel)]="userdata.email" formControlName="thirdCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cellphone:</mat-label>
+        <input matInput placeholder="" [(ngModel)]="userdata.phone" formControlName="fourthCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password:</mat-label>
+        <input matInput type="password" placeholder="" [(ngModel)]="userdata.password" formControlName="fifthCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Confirm password:</mat-label>
+        <input matInput type="password" placeholder="Confirm password" [(ngModel)]="confirmPass" required>
+
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your Address Details:</ng-template>
+      <mat-form-field>
+        <mat-label>Postal Address:</mat-label>
+        <input matInput formControlName="sixthCtrl" [(ngModel)]="userdata.postalAddress" placeholder="kat street" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>City:</mat-label>
+        <input matInput formControlName="seventhCtrl" [(ngModel)]="userdata.city" placeholder="Enter city" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Postal Code:</mat-label>
+        <input matInput formControlName="eighthCtrl" [(ngModel)]="userdata.postalCode" placeholder="Enter postal code" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Country:</mat-label>
+        <input matInput formControlName="ninthCtrl" [(ngModel)]="userdata.country" placeholder="Enter country" required>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <mat-spinner *ngIf="showSpinner"></mat-spinner>
+      <button mat-button (click)="saveData()">Submit</button>
+    </div>
+  </mat-step>
+</mat-stepper>

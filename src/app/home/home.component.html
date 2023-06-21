@@ -1,0 +1,7 @@
+<div class="image-slider">
+    <div class="image-wrapper">
+      <div class="image" [ngStyle]="{ transform: 'translateX(calc(-' + currentIndex + '00%))' }" *ngFor="let image of images; let i = index">
+        <img [src]="image" class="hero-image" height="672px" width="100%">
+      </div>
+    </div>
+  </div>

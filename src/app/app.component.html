@@ -1,0 +1,38 @@
+<mat-toolbar color="">
+  <mat-toolbar-row>
+    <img src="../../assets/logo.png" alt="" width="90px" height="45px">
+    <button mat-button (click)="opened=!opened"  ><mat-icon >menu</mat-icon>  </button>
+    <button mat-button  routerLink="./home"><mat-icon>home</mat-icon>  Home</button>
+    
+  </mat-toolbar-row>
+  
+</mat-toolbar> 
+
+<mat-sidenav-container>
+
+<mat-sidenav [(opened)]="opened" mode="push"> 
+ <mat-list>
+  <mat-list-item><mat-icon aria-hidden="false" aria-label=" home icon" fontIcon="account_circle"></mat-icon>
+    <a routerLink="./register">  Register</a></mat-list-item><br>
+
+  <mat-list-item><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="phone"></mat-icon>
+    <a routerLink="./Contact">  Contact</a></mat-list-item>
+ 
+ </mat-list>
+<br>
+ <button mat-raised-button matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+  Hide
+</button><br><br><br>
+<mat-icon title="login"><a routerLink="./login"> login</a></mat-icon>
+
+</mat-sidenav>
+
+<mat-sidenav-content>
+  <router-outlet></router-outlet>
+  <div class="example-container">
+     
+    </div>
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+
