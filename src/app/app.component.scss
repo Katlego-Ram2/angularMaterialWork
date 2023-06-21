@@ -33,7 +33,7 @@ body { margin: 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     flex: 1 1 auto;
   }
   a:hover{
-    color: #7AB0CD;
+    color: orange;
   }
   .mat-icon {
     vertical-align: middle;
@@ -44,6 +44,9 @@ body { margin: 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     flex-direction: row;
     gap: 29px;
    text-align: center;
+  }
+ fontIcon{
+    background-color: orange;
   }
   // a {
   //   display: flex;
