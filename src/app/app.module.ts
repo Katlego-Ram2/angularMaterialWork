@@ -36,7 +36,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSortModule} from '@angular/material/sort';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatCommonModule} from '@angular/material/core';
 
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -46,19 +46,30 @@ import { RouterModule } from '@angular/router';
 import { MatStepperModule } from '@angular/material/stepper';
 import { LoginComponent } from './login/login.component';
 import { DataStoredComponent } from './data-stored/data-stored.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DialogAComponent } from './dialog-a/dialog-a.component';
+import { DialogbComponent } from './dialogb/dialogb.component'; 
+import {MatTreeModule} from '@angular/material/tree';
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     HomeComponent,
     LoginComponent,
-    DataStoredComponent
+    DataStoredComponent,
+    DialogAComponent,
+    DialogbComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
+    MatTooltipModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatNativeDateModule,
+    MatTreeModule,
+    MatCommonModule,
     MatMenuModule,
     MatStepperModule,
     RouterModule ,

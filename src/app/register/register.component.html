@@ -9,28 +9,56 @@
       <mat-form-field>
         <mat-label>Firstname:</mat-label>
         <input matInput placeholder="First name" [(ngModel)]="userdata.firstname" formControlName="firstCtrl" required>
-      </mat-form-field>
+      </mat-form-field><br>
 
       <mat-form-field>
         <mat-label>Lastname:</mat-label>
         <input matInput placeholder="Last name" [(ngModel)]="userdata.lastname" formControlName="secondCtrl" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
       </mat-form-field>
+      <mat-chip-listbox aria-label="gender">
+       
+        <mat-chip-option color="accent" selected>Male</mat-chip-option>
+        <mat-chip-option color="warn">Female</mat-chip-option>
+      </mat-chip-listbox><br>
+ 
+
+
+<mat-form-field>
+  <mat-label>Race</mat-label>
+  <select matNativeControl required>
+    <option value="black">Black</option>
+    <option value="colored">Colored</option>
+    <option value="white">White</option>
+    <option value="indian">Indian</option>
+  </select>
+</mat-form-field><br>
 
       <mat-form-field>
         <mat-label>Email:</mat-label>
         <input matInput placeholder="Example@Email.com" [(ngModel)]="userdata.email" formControlName="thirdCtrl" required>
-      </mat-form-field>
-
+      </mat-form-field><br>
+      
+      
+        
+     
+      
       <mat-form-field>
         <mat-label>Cellphone:</mat-label>
         <input matInput placeholder="" [(ngModel)]="userdata.phone" formControlName="fourthCtrl" required>
-      </mat-form-field>
+      </mat-form-field><br>
 
       <mat-form-field>
         <mat-label>Password:</mat-label>
         <input matInput type="password" placeholder="" [(ngModel)]="userdata.password" formControlName="fifthCtrl" required>
-      </mat-form-field>
-
+      </mat-form-field><br>
+    
       <mat-form-field>
         <mat-label>Confirm password:</mat-label>
         <input matInput type="password" placeholder="Confirm password" [(ngModel)]="confirmPass" required>
@@ -46,24 +74,43 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Fill out your Address Details:</ng-template>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">SA Resident</mat-radio-button>
+        <mat-radio-button value="2">Other</mat-radio-button>
+      </mat-radio-group><br>
+      
       <mat-form-field>
         <mat-label>Postal Address:</mat-label>
         <input matInput formControlName="sixthCtrl" [(ngModel)]="userdata.postalAddress" placeholder="kat street" required>
-      </mat-form-field>
+      </mat-form-field><br>
 
       <mat-form-field>
         <mat-label>City:</mat-label>
         <input matInput formControlName="seventhCtrl" [(ngModel)]="userdata.city" placeholder="Enter city" required>
-      </mat-form-field>
+      </mat-form-field><br>
 
       <mat-form-field>
         <mat-label>Postal Code:</mat-label>
         <input matInput formControlName="eighthCtrl" [(ngModel)]="userdata.postalCode" placeholder="Enter postal code" required>
-      </mat-form-field>
+      </mat-form-field><br>
 
       <mat-form-field>
         <mat-label>Country:</mat-label>
         <input matInput formControlName="ninthCtrl" [(ngModel)]="userdata.country" placeholder="Enter country" required>
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Province</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Province"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
 
       <div>
@@ -80,7 +127,12 @@
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <mat-spinner *ngIf="showSpinner"></mat-spinner>
-      <button mat-button (click)="saveData()">Submit</button>
+      <button mat-button  (click)="saveData()">Submit</button>
+      <button mat-button>Restart</button>
+      <mat-radio-group aria-label="Select an option">
+        
+        </mat-radio-group>
     </div>
   </mat-step>
 </mat-stepper>
+<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>

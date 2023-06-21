@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserDeatailsService } from '../user-deatails.service';
+import { Observable, startWith, map } from 'rxjs';
 
+interface Race {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-register',
@@ -15,7 +20,12 @@ export class RegisterComponent implements OnInit {
   showSpinner = false;
   userdata: any;
   confirmPass: any;
-
+  startDate = new Date(1990, 0, 1);
+  foods: Race[] = [
+    {value: 'Black-0', viewValue: 'Black'},
+    {value: 'Colored-1', viewValue: 'Colored'},
+    {value: 'White-2', viewValue: 'White'},
+  ];
   constructor(
     private _formBuilder: FormBuilder,
     private userDetailsService: UserDeatailsService
@@ -37,6 +47,16 @@ export class RegisterComponent implements OnInit {
       eighthCtrl: ['', Validators.required],
       ninthCtrl: ['', Validators.required],
     });
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   toggleLinear() {
@@ -105,4 +125,9 @@ export class RegisterComponent implements OnInit {
       localStorage.setItem('users', JSON.stringify(user));
     }, 5000);
   }
+  myControl = new FormControl('');
+  options: string[] = ['Gauteng', 'limpopo', 'free state'];
+  filteredOptions: Observable<string[]> | undefined;
+
+ 
 }

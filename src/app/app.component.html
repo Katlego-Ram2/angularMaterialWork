@@ -1,3 +1,4 @@
+
 <mat-toolbar color="">
   <mat-toolbar-row>
     <img src="../../assets/logo.png" alt="" width="90px" height="45px">
@@ -23,7 +24,8 @@
  <button mat-raised-button matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
   Hide
 </button><br><br><br>
-<mat-icon title="login"><a routerLink="./login"> login</a></mat-icon>
+<mat-icon title="login" matTooltip="Press to login"><a routerLink="./login"> login</a></mat-icon><br><br><br>
+<mat-icon class="custom-icon" fontIcon="list"><a routerLink="./view"> View Invoice</a></mat-icon>
 
 </mat-sidenav>
 
